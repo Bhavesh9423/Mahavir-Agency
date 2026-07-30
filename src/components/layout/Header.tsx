@@ -6,7 +6,6 @@ import {
   Sun,
   Menu,
   X,
-  Sparkles,
   Globe
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
@@ -14,10 +13,10 @@ import { useLanguage } from '../../context/LanguageContext';
 
 interface HeaderProps {
   onOpenSearch: () => void;
-  onOpenQuote: () => void;
+  onOpenQuote?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenQuote }) => {
+export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
@@ -111,14 +110,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenQuote }) => 
             >
               {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-blue-400" />}
             </button>
-
-            {/* Get Quote / Call CTA */}
-            <button
-              onClick={onOpenQuote}
-              className="py-2.5 px-5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs shadow-lg shadow-blue-600/30 flex items-center gap-2 transition-all hover:scale-105"
-            >
-              <Sparkles className="w-4 h-4 text-amber-300" /> {t.nav.quote}
-            </button>
           </div>
 
           {/* Mobile Controls */}
@@ -165,17 +156,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenQuote }) => 
                   {link.name}
                 </a>
               ))}
-              <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenQuote();
-                  }}
-                  className="w-full py-3 rounded-xl bg-blue-600 text-white font-bold text-sm shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2"
-                >
-                  <Sparkles className="w-4 h-4 text-amber-300" /> {t.nav.quote}
-                </button>
-              </div>
             </div>
           </motion.div>
         )}

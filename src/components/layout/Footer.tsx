@@ -21,9 +21,6 @@ export const Footer: React.FC = () => {
               <span className="text-xl font-extrabold tracking-tight font-poppins text-white">
                 MAHAVIR AGENCY
               </span>
-              <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-amber-400">
-                & Novelty
-              </span>
             </div>
           </div>
           <p className="text-xs text-slate-400 max-w-xl text-center md:text-right leading-relaxed">
@@ -34,7 +31,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            © {new Date().getFullYear()} <strong className="text-white">Mahavir Agency & Novelty</strong>. {t.footer.rights}
+            © {new Date().getFullYear()} <strong className="text-white">Mahavir Agency</strong>. {t.footer.rights}
           </div>
           <div className="flex items-center gap-6">
             <span className="hover:text-amber-400 cursor-pointer">{t.footer.privacy}</span>

@@ -47,24 +47,19 @@ export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) 
             <h1 className="text-3xl font-extrabold tracking-tight font-poppins text-gradient-primary">
               MAHAVIR AGENCY
             </h1>
-            <p className="text-xs uppercase tracking-[0.3em] text-amber-400 font-semibold mt-1">
-              & NOVELTY • LUXURY STATIONERY
-            </p>
           </div>
         </motion.div>
 
         {/* Progress Bar & Counter */}
-        <div className="w-64 mt-10 z-10">
-          <div className="flex justify-between text-xs text-slate-400 font-mono mb-2">
-            <span>LOADING EXPERIENCE</span>
-            <span className="text-blue-400 font-bold">{Math.min(progress, 100)}%</span>
+        <div className="w-72 mt-10 z-10">
+          <div className="flex justify-between text-xs text-slate-300 font-mono mb-2">
+            <span>LOADING</span>
+            <span className="text-amber-400 font-bold">{Math.min(progress, 100)}%</span>
           </div>
-          <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden p-0.5 border border-white/10">
-            <motion.div
-              className="h-full bg-gradient-to-r from-blue-600 via-indigo-500 to-amber-500 rounded-full shadow-lg"
-              initial={{ width: 0 }}
-              animate={{ width: `${Math.min(progress, 100)}%` }}
-              transition={{ ease: 'easeOut' }}
+          <div className="w-full h-3 bg-slate-900 rounded-full border border-white/20 p-0.5 overflow-hidden shadow-inner">
+            <div
+              className="h-full bg-gradient-to-r from-blue-600 via-indigo-500 to-amber-400 rounded-full transition-all duration-150 ease-out shadow-md shadow-blue-500/50"
+              style={{ width: `${Math.min(progress, 100)}%` }}
             />
           </div>
         </div>

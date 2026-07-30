@@ -60,9 +60,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               <span className="text-lg font-black tracking-tight font-poppins text-white group-hover:text-blue-400 transition-colors">
                 MAHAVIR AGENCY
               </span>
-              <span className="block text-[10px] font-bold uppercase tracking-[0.25em] text-amber-400">
-                & Novelty
-              </span>
             </div>
           </a>
 

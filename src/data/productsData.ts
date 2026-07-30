@@ -2,7 +2,7 @@ export interface Product {
   id: string;
   name: string;
   category: string;
-  mainCategory: 'school' | 'office' | 'college' | 'files' | 'art' | 'paper' | 'writing' | 'novelty';
+  mainCategory: 'office' | 'college' | 'files' | 'art' | 'paper' | 'writing' | 'novelty';
   description: string;
   priceRetail: string;
   priceWholesale: string;
@@ -17,7 +17,6 @@ export interface Product {
 
 export const CATEGORIES = [
   { id: 'all', label: 'All Products' },
-  { id: 'school', label: 'School Supplies' },
   { id: 'college', label: 'College Stationery' },
   { id: 'office', label: 'Office Essentials' },
   { id: 'files', label: 'Files & Folders' },
@@ -28,12 +27,12 @@ export const CATEGORIES = [
 ];
 
 export const PRODUCTS_DATA: Product[] = [
-  // School & College
+  // College & Professional
   {
     id: 'prod-1',
     name: 'Executive Hardbound Premium Notebook (A4 / Single Line)',
     category: 'Notebooks & Registers',
-    mainCategory: 'school',
+    mainCategory: 'college',
     description: 'High-GSM acid-free paper notebook crafted for smooth writing with fountain pens, gel pens, and pencils. Perfect for students and executives.',
     priceRetail: '₹140',
     priceWholesale: '₹92 / pc',
@@ -48,7 +47,7 @@ export const PRODUCTS_DATA: Product[] = [
     id: 'prod-2',
     name: 'Complete Metal Geometry Box Set',
     category: 'Geometry Box',
-    mainCategory: 'school',
+    mainCategory: 'college',
     description: 'Precision metal compass, divider, protractor, scales, and eraser set engineered for accurate mathematical drawings.',
     priceRetail: '₹180',
     priceWholesale: '₹115 / pc',
@@ -64,7 +63,7 @@ export const PRODUCTS_DATA: Product[] = [
     name: 'Acrylic Painting & Color Palette Kit (24 Shades)',
     category: 'Colors & Art Items',
     mainCategory: 'art',
-    description: 'Vibrant, fast-drying non-toxic acrylic colors ideal for canvas, wood, paper, and school art projects.',
+    description: 'Vibrant, fast-drying non-toxic acrylic colors ideal for canvas, wood, paper, and professional art projects.',
     priceRetail: '₹350',
     priceWholesale: '₹220 / kit',
     minOrderQuantity: '10 Kits',

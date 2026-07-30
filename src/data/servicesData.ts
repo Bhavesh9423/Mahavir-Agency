@@ -24,16 +24,16 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     id: 'srv-3',
     title: 'Bulk Orders & Contracts',
-    description: 'Specialized corporate & school procurement packages with scheduled batch deliveries, custom billing, and credit terms.',
+    description: 'Specialized corporate & institutional procurement packages with scheduled batch deliveries, custom billing, and credit terms.',
     iconName: 'Truck',
     badge: 'B2B Procurement'
   },
   {
     id: 'srv-4',
-    title: 'School Supply Programs',
-    description: 'Complete student kit kits, exam answer books, drawing materials, and classroom whiteboard accessories.',
+    title: 'Academy & Institutional Programs',
+    description: 'Complete study material kits, answer sheets, art materials, and classroom whiteboard accessories.',
     iconName: 'GraduationCap',
-    badge: 'K-12 Education'
+    badge: 'Institutional'
   },
   {
     id: 'srv-5',
@@ -59,7 +59,7 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     id: 'srv-8',
     title: 'Doorstep Express Delivery',
-    description: 'Reliable, safe, and fast doorstep shipping for office and school orders with real-time dispatch tracking.',
+    description: 'Reliable, safe, and fast doorstep shipping for office, college, and commercial orders with real-time dispatch tracking.',
     iconName: 'Zap',
     badge: 'Fast Dispatch'
   }

@@ -6,19 +6,19 @@ export interface Testimonial {
   rating: number;
   comment: string;
   avatar: string;
-  clientType: 'School Principal' | 'Office Manager' | 'Retail Customer' | 'Art Director' | 'Govt Purchaser';
+  clientType: 'College Director' | 'Office Manager' | 'Retail Customer' | 'Art Director' | 'Govt Purchaser';
 }
 
 export const TESTIMONIALS_DATA: Testimonial[] = [
   {
     id: 'test-1',
-    name: 'Rajesh Sharma',
-    role: 'Principal',
-    organization: 'St. Xavier High School',
+    name: 'Prof. Rajesh Sharma',
+    role: 'Academy Director',
+    organization: 'Excel Training Institute',
     rating: 5,
-    comment: 'Mahavir Agency has been supplying our school with answer sheets, notebooks, geometry kits, and whiteboard markers for over 7 years. Their wholesale rates and punctual delivery before academic terms are unmatched.',
+    comment: 'Mahavir Agency has been supplying our institute with exam answer sheets, notebooks, study kits, and whiteboard markers for over 7 years. Their wholesale rates and punctual delivery before academic terms are unmatched.',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
-    clientType: 'School Principal'
+    clientType: 'College Director'
   },
   {
     id: 'test-2',

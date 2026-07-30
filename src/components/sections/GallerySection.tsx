@@ -6,14 +6,7 @@ import { GALLERY_ITEMS } from '../../data/galleryData';
 import { LightboxModal } from '../ui/LightboxModal';
 
 export const GallerySection: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [lightboxItem, setLightboxItem] = useState<GalleryItem | null>(null);
-
-  const categories = ['All', 'Showroom', 'Office Supply', 'School Gear', 'Paper Stock', 'Luxury Pens'];
-
-  const filteredItems = selectedCategory === 'All'
-    ? GALLERY_ITEMS
-    : GALLERY_ITEMS.filter(item => item.category === selectedCategory);
 
   return (
     <section id="gallery" className="py-24 bg-[#090d16] text-white relative">
@@ -31,27 +24,10 @@ export const GallerySection: React.FC = () => {
           </p>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                selectedCategory === cat
-                  ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/30'
-                  : 'bg-slate-900 text-slate-300 hover:text-white border border-white/10'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
         {/* Pinterest Masonry Grid */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
           <AnimatePresence>
-            {filteredItems.map((item) => (
+            {GALLERY_ITEMS.map((item) => (
               <motion.div
                 key={item.id}
                 layout

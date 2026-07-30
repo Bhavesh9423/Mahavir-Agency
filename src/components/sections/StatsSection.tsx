@@ -1,33 +1,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, School, Building2, Layers } from 'lucide-react';
+import { Users, GraduationCap, Building2, Layers } from 'lucide-react';
 import { GlassCard } from '../ui/GlassCard';
 
 export const StatsSection: React.FC = () => {
   const stats = [
     {
-      value: '5000+',
+      value: '4000+',
       label: 'Happy Customers',
-      desc: 'Retail shoppers & parents',
+      desc: 'Retail & wholesale shoppers',
       icon: Users,
       color: 'from-blue-500 to-indigo-600'
     },
     {
-      value: '100+',
-      label: 'Schools Served',
-      desc: 'Annual educational supply',
-      icon: School,
+      value: '50+',
+      label: 'Colleges & Academies',
+      desc: 'Higher education supply',
+      icon: GraduationCap,
       color: 'from-amber-500 to-yellow-600'
     },
     {
-      value: '300+',
+      value: '100+',
       label: 'Office Clients',
       desc: 'Corporate & B2B accounts',
       icon: Building2,
       color: 'from-emerald-500 to-teal-600'
     },
     {
-      value: '10000+',
+      value: '7000+',
       label: 'Products Available',
       desc: 'Ready stock catalog items',
       icon: Layers,

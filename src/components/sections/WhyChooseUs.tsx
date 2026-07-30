@@ -41,7 +41,7 @@ export const WhyChooseUs: React.FC = () => {
             The <span className="text-gradient-gold">Mahavir Agency</span> Advantage
           </h2>
           <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            Delivering excellence, genuine stationery products, and trusted service to thousands of satisfied schools, colleges, offices, and retail customers.
+            Delivering excellence, genuine stationery products, and trusted service to thousands of satisfied colleges, institutions, offices, and retail customers.
           </p>
         </div>
 

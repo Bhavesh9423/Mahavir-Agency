@@ -42,7 +42,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onQuoteClick }
             Comprehensive <span className="text-gradient-primary">Stationery Services</span>
           </h2>
           <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            Tailored supply chain solutions for Wholesale dealers, Retail customers, Schools, Colleges, Corporate Offices, and Custom Orders.
+            Tailored supply chain solutions for Wholesale dealers, Retail customers, Colleges, Academies, Corporate Offices, and Custom Orders.
           </p>
         </div>
 

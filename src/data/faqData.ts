@@ -9,8 +9,8 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     id: 'faq-1',
     category: 'Wholesale',
-    question: 'Do you offer special wholesale pricing for schools and corporate offices?',
-    answer: 'Yes! Mahavir Agency & Novelty specializes in bulk wholesale pricing. Institutions, schools, colleges, and corporate offices receive discounted tier pricing depending on order quantities and recurring supply contracts.'
+    question: 'Do you offer special wholesale pricing for colleges and corporate offices?',
+    answer: 'Yes! Mahavir Agency & Novelty specializes in bulk wholesale pricing. Institutions, colleges, coaching academies, and corporate offices receive discounted tier pricing depending on order quantities and recurring supply contracts.'
   },
   {
     id: 'faq-2',
@@ -40,6 +40,6 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'faq-6',
     category: 'Bulk Orders',
     question: 'Can we request custom branding or logo printing on notebooks and pens?',
-    answer: 'Yes, we provide custom printing and embossing for corporate diaries, executive notebooks, gift pens, and novelty promotional kits for corporate events and school anniversaries.'
+    answer: 'Yes, we provide custom printing and embossing for corporate diaries, executive notebooks, gift pens, and novelty promotional kits for corporate events and institutional milestones.'
   }
 ];

@@ -24,7 +24,7 @@ export const WHY_CHOOSE_US_DATA: BenefitItem[] = [
   {
     id: 'b-3',
     title: 'Wholesale Rates',
-    description: 'Unbeatable tier pricing for bulk institutional, school, and commercial buyers.',
+    description: 'Unbeatable tier pricing for bulk institutional, college, and commercial buyers.',
     iconName: 'TrendingDown',
     accentColor: 'from-emerald-500 to-teal-600'
   },
@@ -66,7 +66,7 @@ export const WHY_CHOOSE_US_DATA: BenefitItem[] = [
   {
     id: 'b-9',
     title: 'Wide Product Range',
-    description: 'Over 10,000+ catalog items covering school, college, office, art, and novelty needs.',
+    description: 'Over 7,000+ catalog items covering college, office, paper, art, and novelty needs.',
     iconName: 'Layers',
     accentColor: 'from-sky-500 to-blue-600'
   },

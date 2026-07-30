@@ -4,16 +4,16 @@ import { Sparkles, ShoppingBag, ArrowRight, ChevronDown, CheckCircle2, Store } f
 import { HeroStationeryScene } from '../3d/HeroStationeryScene';
 
 interface HeroSectionProps {
-  onExploreClick: () => void;
+  onExploreClick?: () => void;
   onContactClick: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onContactClick }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
   const highlights = [
     'Wholesale & Retail',
-    'School Supplies',
     'Office Essentials',
     'College Stationery',
+    'Corporate Supplies',
     'Art Materials',
     'Printing Accessories'
   ];
@@ -60,7 +60,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onCont
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-6 text-lg sm:text-xl text-slate-300 font-medium max-w-3xl mx-auto leading-relaxed"
         >
-          "Everything You Need for School, College, Office & Business"
+          "Everything You Need for College, Office & Business"
         </motion.p>
 
         {/* Highlighted Categories Badges */}
@@ -89,19 +89,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick, onCont
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="#products"
-            onClick={onExploreClick}
+            href="#services"
             className="w-full sm:w-auto py-4 px-8 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-500 hover:to-indigo-500 text-white font-extrabold text-sm shadow-xl shadow-blue-600/40 flex items-center justify-center gap-2.5 transition-all hover:scale-105 border border-blue-400/30"
           >
             <ShoppingBag className="w-5 h-5 text-amber-300" />
-            Shop Now
+            Our Services
           </a>
 
           <a
-            href="#products"
+            href="#about"
             className="w-full sm:w-auto py-4 px-8 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-white font-extrabold text-sm border border-white/15 backdrop-blur-md flex items-center justify-center gap-2 transition-all hover:scale-105"
           >
-            Explore Products <ArrowRight className="w-4 h-4 text-blue-400" />
+            About Store <ArrowRight className="w-4 h-4 text-blue-400" />
           </a>
 
           <a

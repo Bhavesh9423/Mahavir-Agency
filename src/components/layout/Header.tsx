@@ -31,13 +31,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenQuote }) => 
   const navLinks = [
     { name: 'Home', href: '#hero' },
     { name: 'About Us', href: '#about' },
-    { name: 'Products', href: '#products' },
     { name: 'Services', href: '#services' },
     { name: 'Why Us', href: '#why-us' },
-    { name: 'Gallery', href: '#gallery' },
     { name: 'Clients', href: '#clients' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'FAQ', href: '#faq' },
     { name: 'Contact', href: '#contact' },
   ];
 

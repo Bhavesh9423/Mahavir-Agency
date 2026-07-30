@@ -21,7 +21,7 @@ export const AboutSection: React.FC = () => {
       title: 'Retail Store Counter',
       desc: 'Welcoming walk-in store counter for students, parents, and teachers to explore top brand notebooks, pens, and gift novelties.',
       points: [
-        'Over 10,000+ ready products in stock',
+        'Over 7,000+ ready products in stock',
         'Friendly & knowledgeable stationery staff',
         'Instant single item purchases with zero minimums',
         'Exclusive student geometry & art discounts'
@@ -29,10 +29,10 @@ export const AboutSection: React.FC = () => {
       image: 'https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2?q=80&w=800&auto=format&fit=crop'
     },
     institutions: {
-      title: 'School & Corporate Supply Contracts',
-      desc: 'Complete annual stationery procurement contracts for schools, colleges, coaching institutes, and corporate offices.',
+      title: 'Institutional & Corporate Contracts',
+      desc: 'Complete annual stationery procurement contracts for colleges, coaching institutes, and corporate offices.',
       points: [
-        'Exam answer book & student kit customization',
+        'Custom notebook & student kit customization',
         'Whiteboard accessories, markers & duster supplies',
         'Printer toner cartridges & office filing solutions',
         'Scheduled term-wise bulk deliveries'
@@ -53,7 +53,7 @@ export const AboutSection: React.FC = () => {
             Trusted Stationery Partner for <span className="text-gradient-gold">Decades</span>
           </h2>
           <p className="mt-4 text-slate-300 text-base leading-relaxed">
-            <strong>Mahavir Agency & Novelty</strong> is a trusted stationery store offering high-quality products for schools, colleges, offices, businesses, and individual customers. We provide wholesale and retail services with affordable prices, genuine products, and excellent customer support.
+            <strong>Mahavir Agency & Novelty</strong> is a trusted stationery store offering high-quality products for colleges, offices, businesses, and individual customers. We provide wholesale and retail services with affordable prices, genuine products, and excellent customer support.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export const AboutSection: React.FC = () => {
             {[
               { id: 'wholesale', label: 'Wholesale & Bulk Supply', icon: Building2 },
               { id: 'retail', label: 'Retail Store Counter', icon: Award },
-              { id: 'institutions', label: 'School & Office Contracts', icon: ShieldCheck }
+              { id: 'institutions', label: 'Institutional & Office Contracts', icon: ShieldCheck }
             ].map((tab) => (
               <div
                 key={tab.id}

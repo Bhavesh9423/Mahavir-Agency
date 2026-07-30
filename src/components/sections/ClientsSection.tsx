@@ -1,45 +1,39 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { School, Landmark, Building, Briefcase, GraduationCap, Shield } from 'lucide-react';
+import { BookOpen, Landmark, Building, Briefcase, GraduationCap, Shield } from 'lucide-react';
 import { GlassCard } from '../ui/GlassCard';
 
 export const ClientsSection: React.FC = () => {
   const targetAudiences = [
     {
-      title: 'Schools & K-12 Academies',
-      desc: 'Answer books, drawing sheets, geometry sets, craft materials, and teacher whiteboard kits.',
-      icon: School,
-      badge: '100+ Schools Served'
+      title: 'Coaching & Training Academies',
+      desc: 'Test paper reams, graph registers, whiteboards, markers, and student study kits.',
+      icon: BookOpen
     },
     {
       title: 'Colleges & Universities',
       desc: 'Engineering drawing paper, graph registers, spiral notebooks, calculators, and dissertation binding.',
-      icon: Landmark,
-      badge: 'Higher Ed Partner'
+      icon: Landmark
     },
     {
       title: 'Corporate Offices & IT Hubs',
       desc: 'Lever arch files, A4 copier paper reams, printer ink toners, desk organizers, and sticky notes.',
-      icon: Building,
-      badge: '300+ Corporate Clients'
+      icon: Building
     },
     {
       title: 'Commercial Businesses & Shops',
       desc: 'Accounting ledger registers, cash memo books, lamination pouches, staplers, and packaging tapes.',
-      icon: Briefcase,
-      badge: 'Wholesale B2B'
+      icon: Briefcase
     },
     {
       title: 'Government Organizations',
       desc: 'Official filing folders, treasury registers, computer stationery, and tender supply fulfillment.',
-      icon: Shield,
-      badge: 'Govt Supplier'
+      icon: Shield
     },
     {
       title: 'Students & Teachers',
       desc: 'High-GSM notebooks, gel pens, highlighters, exam pads, drawing books, and project supplies.',
-      icon: GraduationCap,
-      badge: 'Retail Walk-In'
+      icon: GraduationCap
     }
   ];
 
@@ -75,9 +69,6 @@ export const ClientsSection: React.FC = () => {
                     <div className="w-13 h-13 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-lg">
                       <aud.icon className="w-7 h-7" />
                     </div>
-                    <span className="px-3 py-1 text-[10px] font-bold rounded-full bg-slate-900 text-amber-300 border border-white/10">
-                      {aud.badge}
-                    </span>
                   </div>
 
                   <h3 className="text-lg font-bold font-poppins text-white mb-2 group-hover:text-blue-400 transition-colors">

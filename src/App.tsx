@@ -7,14 +7,10 @@ import { Footer } from './components/layout/Footer';
 import { FloatingActions } from './components/layout/FloatingActions';
 import { HeroSection } from './components/sections/HeroSection';
 import { AboutSection } from './components/sections/AboutSection';
-import { ProductCatalog } from './components/sections/ProductCatalog';
 import { WhyChooseUs } from './components/sections/WhyChooseUs';
 import { ServicesSection } from './components/sections/ServicesSection';
-import { GallerySection } from './components/sections/GallerySection';
 import { ClientsSection } from './components/sections/ClientsSection';
-import { TestimonialsSection } from './components/sections/TestimonialsSection';
 import { StatsSection } from './components/sections/StatsSection';
-import { FAQSection } from './components/sections/FAQSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { ProductModal } from './components/ui/ProductModal';
 import { Toast } from './components/ui/Toast';
@@ -40,11 +36,6 @@ export function AppContent() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const scrollToProducts = () => {
-    const el = document.getElementById('products');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   if (loading) {
     return <Preloader onComplete={() => setLoading(false)} />;
   }
@@ -63,37 +54,24 @@ export function AppContent() {
       {/* Main Section Views */}
       <main>
         <HeroSection
-          onExploreClick={scrollToProducts}
           onContactClick={scrollToContact}
         />
 
         <AboutSection />
 
-        <ProductCatalog
-          onSelectProduct={(product) => setSelectedProduct(product)}
-          searchQuery={globalSearch}
-          onSearchChange={(q) => setGlobalSearch(q)}
-        />
-
         <WhyChooseUs />
 
         <ServicesSection onQuoteClick={() => setQuoteModalOpen(true)} />
 
-        <GallerySection />
-
         <ClientsSection />
 
-        <TestimonialsSection />
-
         <StatsSection />
-
-        <FAQSection />
 
         <ContactSection onShowToast={showToast} />
       </main>
 
       {/* Footer */}
-      <Footer onShowToast={showToast} />
+      <Footer />
 
       {/* Floating Action CTA Widgets */}
       <FloatingActions />

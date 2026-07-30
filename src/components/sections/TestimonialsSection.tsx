@@ -39,7 +39,7 @@ export const TestimonialsSection: React.FC = () => {
             What Our <span className="text-gradient-gold">Partners Say</span>
           </h2>
           <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            Real feedback from school principals, office procurement heads, artists, and business managers who rely on Mahavir Agency.
+            Real feedback from institute directors, office procurement heads, artists, and business managers who rely on Mahavir Agency.
           </p>
         </div>
 

@@ -6,9 +6,11 @@ import {
   Sun,
   Menu,
   X,
-  Sparkles
+  Sparkles,
+  Globe
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface HeaderProps {
   onOpenSearch: () => void;
@@ -17,6 +19,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenQuote }) => {
   const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -29,12 +32,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenQuote }) => 
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Why Us', href: '#why-us' },
-    { name: 'Clients', href: '#clients' },
-    { name: 'Contact', href: '#contact' },
+    { name: t.nav.home, href: '#hero' },
+    { name: t.nav.about, href: '#about' },
+    { name: t.nav.services, href: '#services' },
+    { name: t.nav.whyUs, href: '#why-us' },
+    { name: t.nav.clients, href: '#clients' },
+    { name: t.nav.contact, href: '#contact' },
   ];
 
   return (
@@ -66,9 +69,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenQuote }) => 
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-1 bg-slate-900/60 backdrop-blur-md p-1.5 rounded-full border border-white/10">
-            {navLinks.slice(0, 7).map((link) => (
+            {navLinks.map((link) => (
               <a
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 className="px-3.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/10 rounded-full transition-all"
               >
@@ -82,19 +85,31 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenQuote }) => 
             {/* Search Trigger */}
             <button
               onClick={onOpenSearch}
-              className="p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-white/10 transition-colors flex items-center gap-2 text-xs font-medium px-3.5"
+              className="p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-white/10 transition-colors"
+              title="Search Products"
             >
               <Search className="w-4 h-4 text-blue-400" />
-              <span>Search Stationery...</span>
+            </button>
+
+            {/* Language Switcher Pill */}
+            <button
+              onClick={toggleLanguage}
+              className="py-1.5 px-3 rounded-full bg-slate-900/80 hover:bg-slate-800 text-xs font-bold text-slate-200 border border-white/10 flex items-center gap-1.5 transition-all"
+              title="Switch Language / भाषा बदलें"
+            >
+              <Globe className="w-3.5 h-3.5 text-amber-400" />
+              <span className={language === 'en' ? 'text-amber-400 font-extrabold' : 'text-slate-400'}>EN</span>
+              <span className="text-slate-600">|</span>
+              <span className={language === 'hi' ? 'text-amber-400 font-extrabold' : 'text-slate-400'}>हिंदी</span>
             </button>
 
             {/* Dark / Light Theme Switcher */}
             <button
               onClick={toggleTheme}
               className="p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-amber-400 border border-white/10 transition-colors"
-              title="Toggle Dark / Light Theme"
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
-              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
+              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-blue-400" />}
             </button>
 
             {/* Get Quote / Call CTA */}
@@ -102,17 +117,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenQuote }) => 
               onClick={onOpenQuote}
               className="py-2.5 px-5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs shadow-lg shadow-blue-600/30 flex items-center gap-2 transition-all hover:scale-105"
             >
-              <Sparkles className="w-4 h-4 text-amber-300" /> Get Wholesale Quote
+              <Sparkles className="w-4 h-4 text-amber-300" /> {t.nav.quote}
             </button>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
+          {/* Mobile Controls */}
           <div className="flex md:hidden items-center gap-2">
             <button
-              onClick={onOpenSearch}
-              className="p-2 rounded-lg bg-slate-900 text-blue-400 border border-white/10"
+              onClick={toggleLanguage}
+              className="px-2.5 py-1.5 rounded-lg bg-slate-900 text-xs font-bold text-amber-400 border border-white/10"
             >
-              <Search className="w-5 h-5" />
+              {language === 'en' ? 'हिंदी' : 'EN'}
+            </button>
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg bg-slate-900 text-amber-400 border border-white/10"
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-blue-400" />}
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -136,7 +157,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenQuote }) => 
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <a
-                  key={link.name}
+                  key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className="px-4 py-2.5 text-sm font-semibold text-slate-200 hover:bg-slate-800 rounded-xl transition-colors"
@@ -152,7 +173,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch, onOpenQuote }) => 
                   }}
                   className="w-full py-3 rounded-xl bg-blue-600 text-white font-bold text-sm shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2"
                 >
-                  <Sparkles className="w-4 h-4 text-amber-300" /> Get Wholesale Quote
+                  <Sparkles className="w-4 h-4 text-amber-300" /> {t.nav.quote}
                 </button>
               </div>
             </div>

@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, PhoneCall, ArrowUp } from 'lucide-react';
+import { MessageSquare, PhoneCall, ArrowUp, Sun, Moon, Globe } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const FloatingActions: React.FC = () => {
+  const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -45,21 +49,47 @@ export const FloatingActions: React.FC = () => {
 
       {/* Floating Action Buttons Container */}
       <div className="fixed bottom-6 left-6 z-40 flex flex-col gap-3">
+        {/* Floating Language Switcher */}
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={toggleLanguage}
+          className="relative group w-11 h-11 rounded-full bg-slate-900/90 hover:bg-slate-800 text-amber-400 flex items-center justify-center shadow-xl border border-white/20 backdrop-blur-md transition-all text-xs font-bold"
+          title="Switch Language (English / हिंदी)"
+        >
+          <Globe className="w-4 h-4 text-amber-400" />
+          <span className="absolute left-14 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl border border-white/10 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity pointer-events-none shadow-xl">
+            Language: {language === 'en' ? 'English' : 'हिंदी'}
+          </span>
+        </motion.button>
+
+        {/* Floating Theme Switcher */}
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={toggleTheme}
+          className="relative group w-11 h-11 rounded-full bg-slate-900/90 hover:bg-slate-800 text-amber-400 flex items-center justify-center shadow-xl border border-white/20 backdrop-blur-md transition-all"
+          title="Toggle Dark/Light Mode"
+        >
+          {theme === 'dark' ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-blue-400" />}
+          <span className="absolute left-14 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl border border-white/10 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity pointer-events-none shadow-xl">
+            Theme: {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
+          </span>
+        </motion.button>
+
         {/* Floating WhatsApp Chat */}
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={handleWhatsApp}
-          className="relative group w-13 h-13 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center shadow-2xl shadow-emerald-500/40 border border-white/20 transition-all"
+          className="relative group w-12 h-12 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center shadow-2xl shadow-emerald-500/40 border border-white/20 transition-all"
           title="Chat on WhatsApp"
         >
-          {/* Online Pulse Status Dot */}
-          <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 bg-green-300 rounded-full border-2 border-[#090d16] animate-ping" />
-          <span className="absolute top-0.5 right-0.5 w-3.5 h-3.5 bg-green-300 rounded-full border-2 border-[#090d16]" />
-          <MessageSquare className="w-6 h-6" />
+          <span className="absolute top-0.5 right-0.5 w-3 h-3 bg-green-300 rounded-full border-2 border-[#090d16] animate-ping" />
+          <span className="absolute top-0.5 right-0.5 w-3 h-3 bg-green-300 rounded-full border-2 border-[#090d16]" />
+          <MessageSquare className="w-5 h-5" />
           
-          {/* Hover Tooltip */}
-          <span className="absolute left-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl border border-white/10 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity pointer-events-none shadow-xl">
+          <span className="absolute left-14 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl border border-white/10 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity pointer-events-none shadow-xl">
             WhatsApp Online
           </span>
         </motion.button>
@@ -69,11 +99,11 @@ export const FloatingActions: React.FC = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={handleCall}
-          className="relative group w-13 h-13 rounded-full bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center shadow-2xl shadow-blue-600/40 border border-white/20 transition-all"
+          className="relative group w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center shadow-2xl shadow-blue-600/40 border border-white/20 transition-all"
           title="Call Store Directly"
         >
           <PhoneCall className="w-5 h-5" />
-          <span className="absolute left-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl border border-white/10 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity pointer-events-none shadow-xl">
+          <span className="absolute left-14 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl border border-white/10 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity pointer-events-none shadow-xl">
             Call +91 9423262994
           </span>
         </motion.button>

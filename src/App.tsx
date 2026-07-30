@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
+import { LanguageProvider } from './context/LanguageContext';
 import { Preloader } from './components/ui/Preloader';
 import { AnimatedCursor } from './components/ui/AnimatedCursor';
 import { Header } from './components/layout/Header';
@@ -41,7 +42,7 @@ export function AppContent() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#090d16] text-slate-100 font-sans selection:bg-blue-600 selection:text-white">
+    <div className="relative min-h-screen transition-colors duration-300 font-sans selection:bg-blue-600 selection:text-white">
       {/* Custom Cursor */}
       <AnimatedCursor />
 
@@ -67,7 +68,7 @@ export function AppContent() {
 
         <StatsSection />
 
-        <ContactSection onShowToast={showToast} />
+        <ContactSection />
       </main>
 
       {/* Footer */}
@@ -226,7 +227,9 @@ export function AppContent() {
 export default function App() {
   return (
     <ThemeProvider>
-      <AppContent />
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
     </ThemeProvider>
   );
 }

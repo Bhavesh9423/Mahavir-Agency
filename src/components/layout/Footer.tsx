@@ -1,8 +1,11 @@
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const Footer: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
-    <footer className="bg-[#060911] text-slate-300 pt-12 pb-12 border-t border-white/10 relative overflow-hidden">
+    <footer className="pt-12 pb-12 border-t border-white/10 relative overflow-hidden">
       {/* Glow Accents */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -24,19 +27,19 @@ export const Footer: React.FC = () => {
             </div>
           </div>
           <p className="text-xs text-slate-400 max-w-xl text-center md:text-right leading-relaxed">
-            Your premier wholesale and retail stationery destination in Karad. Trusted provider of high-quality office essentials, college notebooks, printing paper, and novelty gift products.
+            {t.footer.desc}
           </p>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            © {new Date().getFullYear()} <strong className="text-slate-300">Mahavir Agency & Novelty</strong>. All Rights Reserved.
+            © {new Date().getFullYear()} <strong className="text-white">Mahavir Agency & Novelty</strong>. {t.footer.rights}
           </div>
           <div className="flex items-center gap-6">
-            <span className="hover:text-slate-300 cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-slate-300 cursor-pointer">Terms of Supply</span>
-            <span className="hover:text-slate-300 cursor-pointer">GST Invoice Compliance</span>
+            <span className="hover:text-amber-400 cursor-pointer">{t.footer.privacy}</span>
+            <span className="hover:text-amber-400 cursor-pointer">{t.footer.terms}</span>
+            <span className="hover:text-amber-400 cursor-pointer">{t.footer.gst}</span>
           </div>
         </div>
       </div>

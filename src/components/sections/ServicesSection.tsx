@@ -11,15 +11,17 @@ import {
   Zap,
   ArrowRight
 } from 'lucide-react';
-import { SERVICES_DATA } from '../../data/servicesData';
 import { GlassCard } from '../ui/GlassCard';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface ServicesSectionProps {
   onQuoteClick: () => void;
 }
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onQuoteClick }) => {
-  const iconMap: Record<string, any> = {
+  const { t } = useLanguage();
+
+  const iconList = [
     Boxes,
     ShoppingBag,
     Truck,
@@ -28,31 +30,31 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onQuoteClick }
     Building2,
     Gift,
     Zap
-  };
+  ];
 
   return (
-    <section id="services" className="py-24 bg-[#070b13] text-white relative">
+    <section id="services" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest bg-blue-600/20 text-blue-400 border border-blue-500/30">
-            Our Services
+            {t.services.badge}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-poppins mt-4">
-            Comprehensive <span className="text-gradient-primary">Stationery Services</span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold font-poppins mt-4 text-white">
+            {t.services.title}
           </h2>
           <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            Tailored supply chain solutions for Wholesale dealers, Retail customers, Colleges, Academies, Corporate Offices, and Custom Orders.
+            {t.services.subtitle}
           </p>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {SERVICES_DATA.map((srv, idx) => {
-            const IconComponent = iconMap[srv.iconName] || Boxes;
+          {t.services.items.map((srv, idx) => {
+            const IconComponent = iconList[idx] || Boxes;
             return (
               <motion.div
-                key={srv.id}
+                key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -73,7 +75,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onQuoteClick }
                       {srv.title}
                     </h3>
                     <p className="text-xs text-slate-400 leading-relaxed">
-                      {srv.description}
+                      {srv.desc}
                     </p>
                   </div>
 

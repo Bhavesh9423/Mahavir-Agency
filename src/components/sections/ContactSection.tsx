@@ -8,12 +8,11 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { GlassCard } from '../ui/GlassCard';
+import { useLanguage } from '../../context/LanguageContext';
 
-interface ContactSectionProps {
-  onShowToast: (msg: string) => void;
-}
+export const ContactSection: React.FC = () => {
+  const { t } = useLanguage();
 
-export const ContactSection: React.FC<ContactSectionProps> = () => {
   const handleWhatsAppDirect = () => {
     const text = encodeURIComponent(
       `Hello Mahavir Agency! I would like to inquire about stationery supplies.`
@@ -22,7 +21,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#070b13] text-white relative overflow-hidden">
+    <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background Lighting Blurs */}
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
@@ -31,13 +30,13 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest bg-amber-500/20 text-amber-300 border border-amber-500/30">
-            Get In Touch
+            {t.contact.badge}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-poppins mt-4">
-            Visit Store or <span className="text-gradient-gold">Contact Us</span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold font-poppins mt-4 text-white">
+            {t.contact.title}
           </h2>
           <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            Have questions about bulk orders, institutional contracts, or retail availability? Visit our store or reach out directly!
+            {t.contact.subtitle}
           </p>
         </div>
 
@@ -46,7 +45,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
           <GlassCard glowColor="blue" className="p-8 space-y-6 h-full flex flex-col justify-between">
             <div className="space-y-6">
               <h3 className="text-2xl font-bold font-poppins text-white border-b border-white/10 pb-4">
-                Store Details
+                {t.contact.storeTitle}
               </h3>
 
               {/* Address */}
@@ -55,10 +54,10 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-xs uppercase font-bold tracking-wider text-amber-400">Store Address</h4>
+                  <h4 className="text-xs uppercase font-bold tracking-wider text-amber-400">{t.contact.addressLabel}</h4>
                   <p className="text-sm font-semibold text-white mt-0.5">Mahavir Agency & Novelty</p>
                   <p className="text-xs text-slate-300 mt-0.5 leading-relaxed">
-                    246, Shaniwar Peth, Front of Shivraj Dhaba Parcel, Karad. Maharashtra 415110
+                    {t.contact.addressText}
                   </p>
                 </div>
               </div>
@@ -69,9 +68,9 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-xs uppercase font-bold tracking-wider text-amber-400">Phone & Orders</h4>
-                  <p className="text-sm font-semibold text-white mt-0.5">+91 9423262994</p>
-                  <p className="text-xs text-slate-300 mt-0.5">+91 9822510022 (Wholesale Counter)</p>
+                  <h4 className="text-xs uppercase font-bold tracking-wider text-amber-400">{t.contact.phoneLabel}</h4>
+                  <p className="text-sm font-semibold text-white mt-0.5">{t.contact.phoneText1}</p>
+                  <p className="text-xs text-slate-300 mt-0.5">{t.contact.phoneText2}</p>
                 </div>
               </div>
 
@@ -81,9 +80,9 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-xs uppercase font-bold tracking-wider text-amber-400">Email Address</h4>
-                  <a href="mailto:mahaviragency3883@gmail.com" className="text-sm font-semibold text-white mt-0.5 hover:text-amber-400 transition-colors block">
-                    mahaviragency3883@gmail.com
+                  <h4 className="text-xs uppercase font-bold tracking-wider text-amber-400">{t.contact.emailLabel}</h4>
+                  <a href={`mailto:${t.contact.emailText}`} className="text-sm font-semibold text-white mt-0.5 hover:text-amber-400 transition-colors block">
+                    {t.contact.emailText}
                   </a>
                 </div>
               </div>
@@ -94,9 +93,9 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-xs uppercase font-bold tracking-wider text-amber-400">Business Hours</h4>
-                  <p className="text-sm font-semibold text-white mt-0.5">Monday - Sunday: 10:00 AM - 8:30 PM</p>
-                  <p className="text-xs font-bold text-amber-400 mt-0.5">Tuesday: Closed</p>
+                  <h4 className="text-xs uppercase font-bold tracking-wider text-amber-400">{t.contact.hoursLabel}</h4>
+                  <p className="text-sm font-semibold text-white mt-0.5">{t.contact.hoursText}</p>
+                  <p className="text-xs font-bold text-amber-400 mt-0.5">{t.contact.tuesdayClosed}</p>
                 </div>
               </div>
             </div>
@@ -107,7 +106,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                 onClick={handleWhatsAppDirect}
                 className="w-full py-4 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 transition-all hover:scale-[1.02]"
               >
-                <MessageSquare className="w-5 h-5" /> Instant WhatsApp Inquiry
+                <MessageSquare className="w-5 h-5" /> {t.contact.whatsappBtn}
               </button>
             </div>
           </GlassCard>
@@ -117,7 +116,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
                 <h3 className="text-2xl font-bold font-poppins text-white flex items-center gap-2">
-                  <MapPin className="w-6 h-6 text-amber-400" /> Interactive Store Map
+                  <MapPin className="w-6 h-6 text-amber-400" /> {t.contact.mapTitle}
                 </h3>
                 <a
                   href="https://www.google.com/maps/search/Mahavir+Agency/@17.2836042,74.1777638,17z/data=!3m1!4b1?authuser=0&entry=ttu&g_ep=EgoyMDI2MDcyNi4wIKXMDSoASAFQAw%3D%3D"
@@ -125,7 +124,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                   rel="noreferrer"
                   className="text-xs font-bold text-amber-400 hover:underline flex items-center gap-1"
                 >
-                  Get Directions <ExternalLink className="w-3.5 h-3.5" />
+                  {t.contact.mapDirections} <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
 
@@ -149,7 +148,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
             </div>
 
             <p className="text-xs text-slate-400 text-center leading-relaxed pt-2">
-              Located in Shaniwar Peth, Karad. Convenient wholesale and retail counter parking available.
+              {t.contact.mapNotice}
             </p>
           </GlassCard>
         </div>
